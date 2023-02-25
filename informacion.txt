@@ -1,0 +1,19 @@
+Este código es un ejemplo de cómo utilizar un clasificador de árbol de decisiones para predecir si una persona tiene diabetes o no, utilizando datos de niveles de azúcar y triglicéridos.
+
+Primero, se importan todas las librerías necesarias para cargar y procesar los datos, y para entrenar y evaluar el clasificador. Luego, se cargan los datos de diabetes y se separan las variables de entrada (X) de la variable objetivo (y).
+
+A continuación, se divide el conjunto de datos en un conjunto de entrenamiento y uno de prueba, utilizando la función train_test_split. Se crea un clasificador de árbol de decisiones y se entrena utilizando los datos de entrenamiento.
+
+Luego, se le pide al usuario que ingrese los niveles de azúcar y triglicéridos de una persona, y se realiza una predicción utilizando el clasificador entrenado. Finalmente, se muestra el resultado de la predicción al usuario.
+
+Es importante tener en cuenta que este código es solo un ejemplo y que, para utilizar un clasificador de árbol de decisiones en un problema real, es necesario tener en cuenta otros factores, como la calidad y cantidad de los datos disponibles, la selección de características relevantes, la optimización de los parámetros del clasificador, entre otros.
+
+
+
+
+Regenerate response
+
+edad = int(input("Ingresa la edad del paciente: "))
+imc = float(input("Ingresa el índice de masa corporal (IMC) del paciente: "))
+presion_sanguinea = int(input("Ingresa la presión sanguínea del paciente: "))
+colesterol = int(input("Ingresa el nivel de colesterol del paciente: "))
