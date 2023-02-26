@@ -42,3 +42,60 @@ while(i != 0):
     answer = response.choices[0].text.strip()
     conversation+=answer
     print ('AI: '+answer+ '\n')
+    
+    
+    
+    
+    #PREDECIR EL TIEMPO CON DATOS
+    
+    import pandas as pd
+import numpy as np
+import matplotlib.pylab as plt
+#matplotlib inline
+plt.rcParams['figure.figsize'] = (16,9)
+plt.style.use('fast')
+
+from keras.models import Sequential
+from keras.layers import Dense,Activation,Flatten
+from sklearn.preprocessing import MinMaxScaler
+
+#df = pd.read_csv('time_series.csv',usecols=["Name"],squeeze=True)
+df = pd.read_csv('time_series.csv',parse_dates=[0],header=None,index_col=0,names=['fecha','unidades']).squeeze('columns')
+
+#df = pd.DataFrame([[1, 2], [3, 4]], columns=['a', 'b'])
+#df.head()
+print(df)
+print(df.head())
+#fechas 
+print(df.index.min())
+print(df.index.max()) 
+
+#cuantas muetras tengo registrado en la base de datos
+print(len(df['2017']))
+print(len(df['2018']))
+
+#visualizacion de datos
+#df.describe()
+print(df.describe())
+
+#Promedios mensuales
+meses=df.resample('M').mean()
+print(meses)
+
+#Visualizamos las medias mensuales
+plt.plot(meses['2017'].values)
+plt.plot(meses['2018'].values)
+#Valores de la grafica
+plt.xticks(rotation=45)
+plt.xlabel('Fecha')
+plt.ylabel('Unidades')
+plt.title('Ventas mensuales')
+plt.legend(['2017', '2018'])
+plt.show()
+
+#Ventas diarias
+verano2017= df['2017-06-01':'2017-09-01']
+plt.plot(verano2017.values)
+verano2018= df['2018-06-01':'2018-09-01']
+plt.plot(verano2018.values)
+plt.show()
